@@ -1,0 +1,38 @@
+<div class = "main-container">
+    <% if current_page?(search_path) %>
+        <h1 class = "index-heading">Searched for "<%=@query%>"</h1>
+    <% else %>
+        <h1 class = "index-heading">All Images</h1>
+    <% end %>
+    <div class="container">
+        <div class = "new-btn-section">
+            <%= link_to  :New, new_image_path, class: "btn btn-primary new-btn"%>
+        </div>
+        <br>
+        
+        <div class = "row justify-content-center">
+            <% if @images.empty? %>
+                <p style = "text-align: center; font-size: 1.5rem; margin: 5rem;">no result found</p>
+            <% else %>
+                <% @images.each do |image| %>
+                    
+                    <div class = "col-sm-auto col-lg-4 col-md-6">
+
+                        <div class="card" style="width: 24rem; margin-left:1rem; margin-bottom: 2rem; margin-top: 2rem;">
+                            <%= link_to image_path(image) do %>
+                                <%= image_tag image.image, class: "card-img-top" %>
+                            <% end%>
+                            <div class="card-body">
+                                <h5 class="card-title"><%= image.name %></h5>
+                            </div>
+                        </div>
+                    </div>
+                <% end %>
+            <% end %>
+        </div>
+    </div>
+    <br>
+    <footer>
+        <%== pagy_bootstrap_nav(@pagy)  %>
+    </footer>
+</div>

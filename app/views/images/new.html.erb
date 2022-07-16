@@ -1,0 +1,17 @@
+<div class = "new-form-section">
+    <%= form_with(model: @image, local:true, class: "new-section section-two") do |form| %>
+        <%= form.label :name %> <br>
+        <%= form.text_field :name, class: "text-field" %> <br>
+        <%= form.label :details %> <br>
+        <%= form.text_area :details, class: "text-area", style: "height: 50vh" %> <br>
+        <div class = "button-section">
+            <%= form.file_field :image, required: true %> <br>
+            <%= form.submit "Upload", class: "btn btn-success" %>
+        </div>
+    <% end %>
+</div>
+
+
+
+
+

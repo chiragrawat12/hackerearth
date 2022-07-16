@@ -1,0 +1,25 @@
+<%= form_with(model: @image, local:true, class: "two-sections") do |form| %>
+    <div class = "section-one" > 
+        <%= image_tag @image.image, class: "img-fluid" %>
+    </div>
+    <div class = "section-two"> 
+        <div class = "section-two-name">
+            <%= form.text_field :name, class: "text-field" %> <br>
+        </div>
+        <div class = "section-two-details">
+            <%= form.text_area :details, class: "text-area" %> <br>
+        </div>
+        <div class = "button-section">
+            <%= form.file_field :image %>
+            <%= form.submit "Save Changes", class: "btn btn-success", style: "margin-right: 1rem"%>
+            <%= link_to :Delete, image_path(@image), data: { "turbo-method": :delete }, class: "btn btn-danger", style: "margin-right: 1rem" %>
+        </div>
+    </div>
+  
+<% end %>
+
+
+
+
+
+
