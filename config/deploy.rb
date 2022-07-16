@@ -11,8 +11,8 @@ set :repo_url, "git@github.com:chiragrawat12/hackerearth.git"
 set :deploy_to, "/home/deploy/#{fetch :application}"
 set :branch, ENV['BRANCH'] if ENV['BRANCH']
 
-set :linked_files, %w{config/database.yml config/master.key}
-set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads}
+append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', '.bundle', 'public/system', 'public/uploads'
+
 
 set :keep_releases, 3
 set :keep_assets, 3
